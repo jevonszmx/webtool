@@ -26,10 +26,24 @@ export default new Router({
       name: 'urlencode',
       component: require('@/components/Urlencode').default
     },
-    
+    {
+      path: '/ConvertHex',
+      name: 'ConvertHex',
+      component: require('@/components/ConvertHex').default
+    },
+    {
+      path: '/Unixtime',
+      name: 'Unixtime',
+      component: require('@/components/Unixtime').default
+    },
+    {
+      path: '/Crontab',
+      name: 'Crontab',
+      component: require('@/components/Crontab').default
+    },
     {
       path: '*',
-      redirect: '/urlencode'
+      redirect: '/Crontab'
     }
   ]
 })
