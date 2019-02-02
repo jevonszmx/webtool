@@ -1,52 +1,62 @@
 <template>
-  <div class="root-detail container-fluid">
-   <div class="sub_header">
-    <div class="app_desc">
-     <h2>Crontab表达式生成</h2>
+<div class="container-fluid">
+    <div class="row">
+        <sider></sider>
+        <div class="col-md-10" style="height:800px">
+            <div class="root-detail">
+            <div class="sub_header">
+                <div class="app_desc">
+                <h2>Crontab表达式生成</h2>
+                </div>
+            </div>
+            <div class="app">
+                <div class="view search-box">
+                <div class="layui-form-item m20"> 
+                <label class="layui-form-label w110  pull-left">表达式：</label>
+                <div class="layui-col-md10 layui-input-inline w500 pull-left"> 
+                    <input type="text" id="content" value="0 */12 * * * *" autocomplete="off" placeholder="0 */12 * * * * crontab" class="form-control" />
+                </div>
+                <div class="layui-col-md2 custom-parse pull-left ml20"> 
+                <button class="btn btn-primary" v-on:click="createCrontab">解析</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="layui-col-md12 mt20">
+                <fieldset class="layui-elem-field layui-field-title site-title">
+                    <legend><a name="default" title="接下来7次的执行时间">接下来5次的执行时间</a></legend>
+                </fieldset>
+                <div class="layui-card-body">
+                </div>
+                <pre><code>Crontab
+            *    *    *    *    *    *
+            -    -    -    -    -    -
+            |    |    |    |    |    |
+            |    |    |    |    |    + year [optional]
+            |    |    |    |    +----- day of week (0 - 7) (Sunday=0 or 7)
+            |    |    |    +---------- month (1 - 12)
+            |    |    +--------------- day of month (1 - 31)
+            |    +-------------------- hour (0 - 23)
+            +------------------------- min (0 - 59)
+            </code>
+            </pre>
+                </div>
+                <div class="layui-col-md12 short-area"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
-   </div>
-   <div class="app">
-    <div class="view search-box">
-     <div class="layui-form-item m20"> 
-      <label class="layui-form-label w110  pull-left">表达式：</label>
-      <div class="layui-col-md10 layui-input-inline w500 pull-left"> 
-        <input type="text" id="content" value="0 */12 * * * *" autocomplete="off" placeholder="0 */12 * * * * crontab" class="form-control" />
-      </div>
-      <div class="layui-col-md2 custom-parse pull-left ml20"> 
-       <button class="btn btn-primary" v-on:click="createCrontab">解析</button>
-      </div>
-      <div class="clearfix"></div>
-      <div class="layui-col-md12 mt20">
-       <fieldset class="layui-elem-field layui-field-title site-title">
-        <legend><a name="default" title="接下来7次的执行时间">接下来5次的执行时间</a></legend>
-       </fieldset>
-       <div class="layui-card-body">
-       </div>
-       <pre><code>Crontab
-*    *    *    *    *    *
--    -    -    -    -    -
-|    |    |    |    |    |
-|    |    |    |    |    + year [optional]
-|    |    |    |    +----- day of week (0 - 7) (Sunday=0 or 7)
-|    |    |    +---------- month (1 - 12)
-|    |    +--------------- day of month (1 - 31)
-|    +-------------------- hour (0 - 23)
-+------------------------- min (0 - 59)
-</code></pre>
-      </div>
-      <div class="layui-col-md12 short-area"></div>
-     </div>
-    </div>
-   </div>
-  </div>
+</div>
 </template>
 
 <script>
 import $ from "jquery";
 import later from "later";
 import layer from "layer";
-
+import sider from './sider'
+	
 export default {
+	components : { sider },
   name: "Crontab",
   data() {
     return {};
@@ -595,8 +605,8 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 95%;
-  background-color: #f7f7f7;
+  width: 100%;
+  /* background-color: #f7f7f7; */
   /* margin-left: 12px; */
   /* margin-right: 12px; */
   flex: 1;
@@ -610,7 +620,7 @@ export default {
   align-content: flex-start;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding-top: 26px;
+  padding-top: 0;
 }
 
 .root-detail .sub_header .app_desc {

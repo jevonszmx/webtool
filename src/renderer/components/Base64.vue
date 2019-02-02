@@ -10,84 +10,67 @@
 					<ul class="nav nav-tabs">
 						<li><a  v-on:click="$router.push({name : 'Native2Unicode' })">Native/Unicode</a></li>
 						<li><a  v-on:click="$router.push({name : 'Native2UTF8' })">Native/UTF-8</a></li>
-						<li class="active"><a  v-on:click="$router.push({name : 'Native2ASCII' })">Native/ASCII</a></li>
+						<li><a  v-on:click="$router.push({name : 'Native2ASCII' })">Native/ASCII</a></li>
 						<li><a  v-on:click="$router.push({name : 'urlencode' })">URL转码</a></li>
-						<li><a  v-on:click="$router.push({name : 'Base64' })">Base64转码</a></li>
+						<li class="active"><a  v-on:click="$router.push({name : 'Base64' })">Base64转码</a></li>
 					</ul>
 				</div>
-				<div  class="bg-warning" style="padding: 15px;">
-					<button class="close" data-dismiss="alert">×</button>
-					<p>Java中的properties配置文件可以使用这种格式</p>
-				</div>
 				<div class="leftBar">
-					<div class="title">Native:</div>
-					<textarea name="cipher" id="n_source">这是一个例子,this is a example</textarea>
+					<div class="title">原始:</div>
+					<textarea name="cipher" id="a_source">这是一个例子,this is a example</textarea>
 				</div>
 
 				<div class="operateLR">
 					<div class="OptDetail Button">
-						<label class="checkbox pull-left"><input type="checkbox" name="ignoreLetter" id="ignoreLetter" checked="true">不转换字母和数字&nbsp;</label>
-						<button class="btn btn-primary" v-on:click="native2ascii" > ASCII -&gt;</button>
-						<button class="btn btn-primary" v-on:onclick="ascii2native">&lt;- Native </button>
+						<button class="btn btn-primary" v-on:click="Base64Encode" > Base64 Encode </button>
+						<button class="btn btn-primary" v-on:click="Base64Decode"> Base64 Decode </button>
 					</div>
-					<div class="clearfix"></div>
 				</div>
-
 				<div class="rightBar">
-					<div class="title">ASCII:</div>
-					<textarea name="message" id="a_source" class="text_source"></textarea>
+					<div class="title">编码后:</div>
+					<textarea name="message" id="u_source" class="text_source"></textarea>
 				</div>
-
 			</div>
 			</div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 </template>
 
 <script>
-	import $ from 'jquery'
-	import sider from './sider'
+import $ from 'jquery'
+import sider from './sider'
+import { Base64 } from 'js-base64';
 	
-  export default {
-	name: 'Native2Unicode',
+export default {
 	components : { sider },
+    name: 'Base64',
     data () {
       return {
 
       }
     },
     methods: {
-         native2ascii(){
-            var character=document.getElementById("n_source").value.split("");
-            var ascii="";
-            for(var i=0;i<character.length;i++){
-                var code=Number(character[i].charCodeAt(0));
-                if(!document.getElementById("ignoreLetter").checked||code>127){
-                    var charAscii=code.toString(16);
-                    charAscii=new String("0000").substring(charAscii.length,4)+charAscii;
-                    ascii+="\\u"+charAscii;
-                }
-                else{
-                    ascii+=character[i];
-                }
-            }
-            document.getElementById("a_source").value=ascii;
-        },
-        ascii2native(){
-            var character=document.getElementById("a_source").value.split("\\u");
-            var native1=character[0];
-            for(var i=1;i<character.length;i++){
-                var code=character[i];
-                native1+=String.fromCharCode(parseInt("0x"+code.substring(0,4)));
-                if(code.length>4){
-                    native1+=code.substring(4,code.length);
-                }
-            }
-            document.getElementById("n_source").value=native1;
+      Base64Encode () {
+        var a_s = $("#a_source").val();
+        if ('' == a_s) { 
+            alert('请输入原始字符串'); 
+            return; 
         }
+        $("#u_source").val('');
+        $("#u_source").val(Base64.encode(a_s));
+      },
+      Base64Decode () {
+        var code = $("#u_source").val();
+        if (code == '') { 
+			alert('请输入正确的代码！'); 
+			$("#u_source").focus();
+            return; 
+        }
+        $("#a_source").val(Base64.decode(code));
+	  }	  
     }
-  }
+}
 </script>
 
 <style scoped>
@@ -122,10 +105,51 @@
 }
 
 #header {
+	
 	height: 50px;
 	width:100%;
 }
 
+
+#mainSearch {
+	float: right;
+	margin-top: 10px;
+}
+
+.searchBox {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 15px 0 5px;
+	background-color: #fff;
+	color: #aaa;
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.searchButton {
+	display: inline-block;
+	padding: 2px 5px;
+	margin-left: 20px;
+	*height: 30px;
+	height: 30px\9;
+	background-color: #ff9600;
+	font-size: 18px;
+	color: #fff;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.searchButton:hover {
+	background-color: #ff8000;
+}
+
+
+#footer {
+	margin-top: 20px;
+	background-color: #ececec;
+	line-height: 30px;
+}
+/* END 公共部分 */
 
 /*  INDEX  */
 .column {
@@ -379,11 +403,11 @@
 }
 
 .operateLR {
-	/* float: left; */
+	float: left;
 	width: 100%;
 	height: 50px;
 	text-align: left;
-	margin: 10px 0px 0 30px;
+	margin: 10px 0 0 10px;
 }
 /*  END 左右版式  */
 
@@ -450,7 +474,4 @@
 	background-color: #f4f4f4;
 }
 /*  END 表格样式  */
-.ml20 {
-	margin-left: 20px
-}
 </style>

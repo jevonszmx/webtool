@@ -1,32 +1,38 @@
 <template>
 <div class="container-fluid">
-	<div id="mainContent" class="wrapper">
-		<div class="toolName">编码转换</div>
-		<div class="toolUsing clearfix">
-			<div class="toolsTab  clearfix">
-				<ul class="nav nav-tabs">
-					<li><a  v-on:click="gotoNative2Unicode">Native/Unicode</a></li>
-					<li><a  v-on:click="gotoNative2UTF8">Native/UTF-8</a></li>
-					<li><a  v-on:click="gotoNative2ASCII">Native/ASCII</a></li>
-					<li class='active'><a v-on:click="gotourlencode">URL转码</a></li>
-				</ul>
-			</div>
-			<div class="leftBar">
-				<div class="title"><p>待编码:</p></div>
-				<textarea name="url" id="source">测试</textarea>
-			</div>
-			<div class="operateLR">
-				<div class="OptDetail Button">
-					<label class="radio" id="en_tip"><input type="radio" name="_type" checked="checked"/>encodeURI</label>
-					<label class="radio" id="co_tip"><input type="radio" name="_type" id="co_t"/>encodeURIComponent</label>
-					<button class="btn btn-primary" v-on:click="encode_uri" > URL编码 -&gt;  </button>
-					<button class="btn btn-primary"  v-on:click="decode_uri"> -&lt; URL解码  </button>
-				</div>
-			</div>
+    <div class="row">
+        <sider></sider>
+        <div class="col-md-10" style="height:800px">
+			<div id="mainContent" class="wrapper">
+				<div class="toolName">编码转换</div>
+				<div class="toolUsing clearfix">
+					<div class="toolsTab  clearfix">
+						<ul class="nav nav-tabs">
+							<li><a  v-on:click="$router.push({name : 'Native2Unicode' })">Native/Unicode</a></li>
+							<li><a  v-on:click="$router.push({name : 'Native2UTF8' })">Native/UTF-8</a></li>
+							<li><a  v-on:click="$router.push({name : 'Native2ASCII' })">Native/ASCII</a></li>
+							<li class="active"><a  v-on:click="$router.push({name : 'urlencode' })">URL转码</a></li>
+							<li><a  v-on:click="$router.push({name : 'Base64' })">Base64转码</a></li>
+						</ul>
+					</div>
+					<div class="leftBar">
+						<div class="title"><p>待编码:</p></div>
+						<textarea name="url" id="source">测试</textarea>
+					</div>
+					<div class="operateLR">
+						<div class="OptDetail Button">
+							<label class=" pull-left" id="en_tip"><input type="radio" name="_type" checked="checked"/>encodeURI</label>
+							<label class=" pull-left ml20" id="co_tip"><input type="radio" name="_type" id="co_t"/>encodeURIComponent</label>
+							<button class="btn btn-primary ml20" v-on:click="encode_uri" > URL编码 -&gt;  </button>
+							<button class="btn btn-primary ml20"  v-on:click="decode_uri"> -&lt; URL解码  </button>
+						</div>
+					</div>
 
-			<div class="rightBar">
-				<div class="title"><p>编码结果:</p></div>
-				<textarea name='message' id='result' class='text_source'></textarea>
+					<div class="rightBar">
+						<div class="title"><p>编码结果:</p></div>
+						<textarea name='message' id='result' class='text_source'></textarea>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -34,53 +40,33 @@
 </template>
 
 <script>
-	import $ from 'jquery'
+import $ from 'jquery'	
+import sider from './sider'
 	
-  export default {
+export default {
+	components : { sider },
 	name: 'urlencode',
     data () {
       return {
-        electron: process.versions.electron,
-        name: this.$route.name,
-        node: process.versions.node,
-        path: this.$route.path,
-        platform: require('os').platform(),
-        vue: require('vue/package.json').version
       }
     },
     methods: {
       encode_uri () {
-        if($("#co_t").attr("checked"))
-            $("#result").val(encodeURIComponent($("#source").val()));
-        else
-            $("#result").val(encodeURI($("#source").val()));
+        if($("#co_t").attr("checked")) {
+			$("#result").val(encodeURIComponent($("#source").val()));
+		}
+        else {
+			$("#result").val(encodeURI($("#source").val()));
+		}  
       },
       decode_uri () {
-        if($("#co_t").attr("checked"))
-            $("#source").val(decodeURIComponent($("#result").val()));
-        else
-            $("#source").val(decodeURI($("#result").val()));
-	  },
-	  gotourlencode() {
-		  this.$router.push({
-			  name : 'urlencode'
-		  });
-	  },
-	  gotoNative2Unicode() {
-		  this.$router.push({
-			  name : 'Native2Unicode'
-		  });
-	  },
-	  gotoNative2UTF8 () {
-		  this.$router.push({
-			  name : 'Native2UTF8'
-		  });
-	  },
-      gotoNative2ASCII() {
-          this.$router.push({
-			  name : 'Native2ASCII'
-		  });
-      }
+        if($("#co_t").attr("checked")) {
+			$("#source").val(decodeURIComponent($("#result").val()));
+		}  
+        else {
+			$("#source").val(decodeURI($("#result").val()));
+		}   
+	  }
     }
   }
 </script>
@@ -88,7 +74,7 @@
 <style scoped>
 
 .wrapper {
-	width: 1000px;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -396,11 +382,11 @@
 
 /*  左右版式  */
 .leftBar {
-	float: left;
+	/* float: left; */
 }
 
 .rightBar {
-	float: right;
+	/* float: right; */
 }
 
 .leftBar .title,.rightBar .title {
@@ -410,15 +396,16 @@
 }
 
 .leftBar textarea,.rightBar textarea {
-	width: 400px;
-	height: 500px;
+	width: 100%;
+	height: 200px;
 }
 
 .operateLR {
 	float: left;
-	width: 150px;
+	width: 100%;
+	height: 50px;
 	text-align: left;
-	margin: 50px 5px 0 30px;
+	margin: 10px 0 0 10px;
 }
 /*  END 左右版式  */
 
@@ -485,4 +472,7 @@
 	background-color: #f4f4f4;
 }
 /*  END 表格样式  */
+.ml20{
+	margin-left: 20px;
+}
 </style>

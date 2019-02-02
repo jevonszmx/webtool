@@ -1,176 +1,183 @@
 <template>
-  <div class="root-detail container-fluid">
-    <div class="sub_header">
-      <div class="app_desc">
-        <h2>Unixtime时间戳转换</h2>
-      </div>
-    </div>
-    <div class="app">
-      <div class="view search-box">
-        <div class="m20">
-          <div class="show-area">
-            <div class="mt20">
-              <label class="pull-left w110">现在：</label>
-              <div class="pull-left">
-                <a id="js_timestamp_now" href="javascript:;"></a>
+<div class="container-fluid">
+    <div class="row">
+        <sider></sider>
+        <div class="col-md-10" style="height:800px;overflow: scroll;">
+        <div class="root-detail container-fluid">
+            <div class="sub_header">
+              <div class="app_desc">
+                <h2>&nbsp;&nbsp;Unixtime时间戳转换</h2>
               </div>
-              <div class="clearfix"></div>
             </div>
-            <div class="mt20">
-              <label class="pull-left w110">时间戳：</label>
-              <div class="pull-left w210">
-                <input
-                  type="text"
-                  placeholder="请填写时间戳"
-                  value
-                  id="js_timestamp"
-                  class="form-control w200"
-                >
-              </div>
-              <div class="pull-left ml20">
-                <button
-                  class="btn btn-primary"
-                  id="js_convert_timestamp"
-                  v-on:click="convertFromUnixtime"
-                >转换</button>
-              </div>
-              <div class="pull-left ml20">
-                <input type="text" placeholder id="js_datetime" value class="form-control w200">
-              </div>
-              <div class="clearfix"></div>
-            </div>
+            <div class="app">
+              <div class="view search-box">
+                <div class="m20">
+                  <div class="show-area">
+                    <div class="mt20">
+                      <label class="pull-left w110">现在：</label>
+                      <div class="pull-left">
+                        <a id="js_timestamp_now" href="javascript:;"></a>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="mt20">
+                      <label class="pull-left w110">时间戳：</label>
+                      <div class="pull-left w210">
+                        <input
+                          type="text"
+                          placeholder="请填写时间戳"
+                          value
+                          id="js_timestamp"
+                          class="form-control w200"
+                        >
+                      </div>
+                      <div class="pull-left ml20">
+                        <button
+                          class="btn btn-primary"
+                          id="js_convert_timestamp"
+                          v-on:click="convertFromUnixtime"
+                        >转换</button>
+                      </div>
+                      <div class="pull-left ml20">
+                        <input type="text" placeholder id="js_datetime" value class="form-control w200">
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
 
-            <div class="mt20">
-              <label class="pull-left w110">时间：</label>
-              <div class="pull-left w210">
-                <input
-                  type="text"
-                  placeholder="YYYY-MM-DD HH:mm:ss"
-                  id="js_datetime_o"
-                  value="2019-02-01 17:03:13"
-                  class="form-control w200"
-                >
-              </div>
-              <div class="pull-left ml20">
-                <button
-                  class="btn btn-primary"
-                  id="js_convert_datetime"
-                  v-on:click="convert2Unixtime"
-                >转换</button>
-              </div>
-              <div class="pull-left ml20 w260">
-                <input type="text" placeholder value id="js_timestamp_o" class="form-control w200">
+                    <div class="mt20">
+                      <label class="pull-left w110">时间：</label>
+                      <div class="pull-left w210">
+                        <input
+                          type="text"
+                          placeholder="YYYY-MM-DD HH:mm:ss"
+                          id="js_datetime_o"
+                          value="2019-02-01 17:03:13"
+                          class="form-control w200"
+                        >
+                      </div>
+                      <div class="pull-left ml20">
+                        <button
+                          class="btn btn-primary"
+                          id="js_convert_datetime"
+                          v-on:click="convert2Unixtime"
+                        >转换</button>
+                      </div>
+                      <div class="pull-left ml20 w260">
+                        <input type="text" placeholder value id="js_timestamp_o" class="form-control w200">
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="layui-col-md12 mt20">
+                      <fieldset class="layui-elem-field layui-field-title site-title">
+                        <legend>
+                          <a name="default">描述</a>
+                        </legend>
+                      </fieldset>
+                    </div>
+                    <table class="layui-table">
+                      <tbody>
+                        <tr>
+                          <td width="20%">Swift</td>
+                          <td>
+                            <pre> <code>NSDate().timeIntervalSince1970</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Go</td>
+                          <td>
+                            <pre><code>import (&quot;time&quot;)int32(time.Now().Unix())</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Java</td>
+                          <td>
+                            <pre><code>// pure java(int) (System.currentTimeMillis() / 1000)</code></pre>
+                            <pre><code>// joda (int) (DateTime.now().getMillis() / 1000)</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>JavaScript</td>
+                          <td>
+                            <pre><code>Math.round(new Date() / 1000)</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Objective-C</td>
+                          <td>
+                            <pre><code>[[NSDate date] timeIntervalSince1970]</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>MySQL</td>
+                          <td>
+                            <pre><code>SELECT unix_timestamp(now())</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>SQLite</td>
+                          <td>
+                            <pre><code>SELECT strftime('%s', 'now')</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Erlang</td>
+                          <td>
+                            <pre><code>calendar:datetime_to_gregorian_seconds(calendar:universal_time())-719528*24*3600.</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>PHP</td>
+                          <td>
+                            <pre><code>time()</code></pre>
+                            <pre><code>strtotime('2019-01-01 12:13:15')</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Python</td>
+                          <td>
+                            <pre><code>import timetime.time()</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Ruby</td>
+                          <td>
+                            <pre><code>Time.now.to_i</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Shell</td>
+                          <td>
+                            <pre><code>date +%s</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Groovy</td>
+                          <td>
+                            <pre><code>(new Date().time / 1000).intValue()</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Lua</td>
+                          <td>
+                            <pre><code>os.time()</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>.NET/C#</td>
+                          <td>
+                            <pre><code>(DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000</code></pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="layui-col-md12 mt20">
-              <fieldset class="layui-elem-field layui-field-title site-title">
-                <legend>
-                  <a name="default">描述</a>
-                </legend>
-              </fieldset>
-            </div>
-            <table class="layui-table">
-              <tbody>
-                <tr>
-                  <td width="20%">Swift</td>
-                  <td>
-                    <pre> <code>NSDate().timeIntervalSince1970</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Go</td>
-                  <td>
-                    <pre><code>import (&quot;time&quot;)int32(time.Now().Unix())</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Java</td>
-                  <td>
-                    <pre><code>// pure java(int) (System.currentTimeMillis() / 1000)</code></pre>
-                    <pre><code>// joda (int) (DateTime.now().getMillis() / 1000)</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>JavaScript</td>
-                  <td>
-                    <pre><code>Math.round(new Date() / 1000)</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Objective-C</td>
-                  <td>
-                    <pre><code>[[NSDate date] timeIntervalSince1970]</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MySQL</td>
-                  <td>
-                    <pre><code>SELECT unix_timestamp(now())</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>SQLite</td>
-                  <td>
-                    <pre><code>SELECT strftime('%s', 'now')</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Erlang</td>
-                  <td>
-                    <pre><code>calendar:datetime_to_gregorian_seconds(calendar:universal_time())-719528*24*3600.</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>PHP</td>
-                  <td>
-                    <pre><code>// pure phptime()</code></pre>
-                    <pre><code>// Carbon\CarbonCarbon::now()-&gt;timestamp</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Python</td>
-                  <td>
-                    <pre><code>import timetime.time()</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ruby</td>
-                  <td>
-                    <pre><code>Time.now.to_i</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shell</td>
-                  <td>
-                    <pre><code>date +%s</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Groovy</td>
-                  <td>
-                    <pre><code>(new Date().time / 1000).intValue()</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Lua</td>
-                  <td>
-                    <pre><code>os.time()</code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td>.NET/C#</td>
-                  <td>
-                    <pre><code>(DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000</code></pre>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-        </div>
-      </div>
     </div>
-  </div>
+	</div>  
+</div>
 </template>
 
 <script>
@@ -205,8 +212,10 @@ Date.prototype.format = function(format) {
   }
   return format;
 };
-
+import sider from './sider'
+	
 export default {
+	components : { sider },
   name: "Unixtime",
   data() {
     return {};
@@ -270,509 +279,7 @@ export default {
 </script>
 
 <style scoped>
-.searchBox {
-  padding-right: 10px;
-}
 
-.searchBox .inputContainer {
-  width: 100%;
-  position: relative;
-}
-
-.searchBox .inputContainer select {
-  width: 100%;
-  font-size: 110%;
-  font-family: open sans, sans-serif;
-  font-weight: 300;
-  border-radius: 5px;
-  border: 2px solid #d1d1d1;
-  transition: border-color 200ms ease-in-out;
-  outline: none;
-  padding: 6px 8px;
-  padding-left: 27px;
-  padding-right: 5px;
-  box-sizing: border-box;
-  background-size: 14px;
-  background-repeat: no-repeat;
-  background-position: 8px 10px;
-}
-
-.searchBox .inputContainer .clear:hover,
-.searchBox .inputContainer .clear:active {
-  opacity: 1;
-}
-
-.searchBox .inputContainer.hasValue .clear {
-  display: block;
-}
-
-.searchBox .inputContainer.hasValue input {
-  padding-right: 35px;
-}
-
-.searchBox .inputContainer.nothingFound input {
-  border-color: #e99999;
-}
-
-.searchBox .ex {
-  font-size: 12px;
-  margin-top: 6px;
-  color: #999;
-}
-
-.searchBox .ex .text {
-  color: #666;
-  cursor: pointer;
-}
-
-.searchBox .ex .text:hover {
-  color: #000;
-}
-
-@media only screen and (max-width: 760px) {
-  .searchBox {
-    padding-right: 0;
-  }
-
-  .searchBox .inputContainer select {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .searchBox {
-    padding-right: 0;
-  }
-
-  .searchBox .inputContainer select {
-    width: 90%;
-  }
-}
-
-.root {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  min-height: 100%;
-  width: 100%;
-  background-color: #f7f7f7;
-}
-
-.root .sidebar {
-  padding-left: 40px;
-  padding-right: 30px;
-  padding-top: 25px;
-  background-color: #f7f7f7;
-  width: 300px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-
-.root .sidebar .top {
-  flex: 1;
-}
-
-.root .sidebar .top .logo {
-  width: 230px;
-  display: inline-block;
-}
-
-.root .sidebar .top .lang {
-  margin-bottom: 27px;
-}
-
-.root .sidebar .top .lang .sub_menu {
-  margin-left: -24px;
-  padding-top: 8px;
-}
-
-.root .sidebar .top .desc {
-  font-size: 152%;
-  font-weight: 300;
-  margin-top: 22px;
-  line-height: 1.35;
-  color: #949494;
-}
-
-.root .sidebar .top .searchBox {
-  margin-top: 26px;
-}
-
-.root .sidebar .bottom {
-  color: #949494;
-  font-weight: 300;
-  padding-bottom: 15px;
-}
-
-.root .sidebar .bottom .copyright {
-  margin-bottom: 15px;
-}
-
-.root .sidebar .bottom .contact a {
-  color: #666;
-  text-decoration: none;
-}
-
-.root .sidebar .bottom .contact a:hover {
-  color: #333;
-  text-decoration: underline;
-}
-
-.root .sidebar .bottom .anchors a {
-  color: inherit;
-  text-decoration: none;
-  margin-right: 15px;
-}
-
-.root .sidebar .bottom .anchors a:hover {
-  text-decoration: underline;
-}
-
-.root .sidebar .bottom .anchors a:last-child {
-  margin-right: 0;
-}
-
-.root .apps {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: flex-start;
-  flex: 1;
-  background-color: #f7f7f7;
-}
-
-.root .apps .app {
-  text-decoration: none;
-  color: #000;
-  background-color: #fff;
-  width: 50%;
-  height: auto;
-  animation: fadeIn 0.5s;
-  box-sizing: border-box;
-  border-right: 2px solid #f7f7f7;
-  border-bottom: 2px solid #f7f7f7;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
-}
-
-.root .apps .app .padding {
-  padding-left: 50px;
-  padding-right: 30px;
-  padding-top: 31px;
-  padding-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.root .apps .app .padding img {
-  margin-top: 32px;
-  margin-bottom: 12px;
-  border: none;
-}
-
-.root .apps .app .padding .js_icon {
-  width: 100px;
-  height: 80px;
-  margin-bottom: 0;
-  margin-left: -19px;
-}
-
-.root .apps .app .padding .js_icon.compress {
-  margin-left: -24px;
-}
-
-.root .apps .app .padding .js_icon.merge {
-  margin-left: -15px;
-}
-
-.root .apps .app .padding .js_icon.split {
-  margin-left: -10px;
-}
-
-.root .apps .app .padding .js_icon.protect {
-  margin-left: -25px;
-}
-
-.root .apps .app .padding .js_icon.unlock {
-  margin-left: -27px;
-}
-
-.root .apps .app .padding .js_icon.watermark {
-  margin-left: -28px;
-}
-
-.root .apps .app .padding .js_icon.page-numbers {
-  margin-left: -20px;
-}
-
-.root .apps .app .padding .js_icon.rotate {
-  margin-left: -22px;
-}
-
-.root .apps .app .padding .js_icon.convert {
-  margin-left: -18px;
-}
-
-.root .apps .app .padding .js_icon.ocr {
-  margin-left: -29px;
-}
-
-.root .apps .app .padding .js_icon.optimize {
-  margin-left: -29px;
-}
-
-.root .apps .app .padding .js_icon.more {
-  margin-left: -25px;
-}
-
-.root .apps .app .padding .title {
-  font-size: 130%;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 13px;
-}
-
-.root .apps .app .padding .desc {
-  font-size: 85%;
-  font-weight: 300;
-  color: #999;
-  line-height: 1.75;
-}
-
-.root .apps .app:hover {
-  background-color: #f9f9f9;
-}
-
-.root .apps .app.hidden {
-  display: none;
-}
-
-.root .apps .app.hidden {
-  display: none;
-}
-
-@media screen and (min-width: 980px) {
-  .root .apps .app {
-    width: 33.33333%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .root .sidebar {
-    width: 320px;
-  }
-
-  .root .apps .app {
-    width: 25%;
-  }
-}
-
-@media screen and (min-width: 1500px) {
-  .root .sidebar {
-    width: 340px;
-  }
-
-  .root .apps .app {
-    width: 20%;
-  }
-}
-
-@media screen and (min-width: 1800px) {
-  .root .sidebar {
-    width: 360px;
-  }
-
-  .root .apps .app {
-    width: 16.66667%;
-  }
-}
-
-@media screen and (min-width: 2100px) {
-  .root .sidebar {
-    width: 380px;
-  }
-
-  .root .apps .app {
-    width: 14.28571%;
-  }
-}
-
-@media screen and (min-width: 2400px) {
-  .root .sidebar {
-    width: 400px;
-  }
-
-  .root .apps .app {
-    width: 12.5%;
-  }
-}
-
-.mobile_footer {
-  display: none;
-  background-color: #f7f7f7;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-.mobile_footer .anchors {
-  text-align: center;
-}
-
-.mobile_footer .anchors a {
-  text-decoration: none;
-  color: #949494;
-  margin-right: 30px;
-}
-
-.mobile_footer .anchors a:last-child {
-  margin-right: 0;
-}
-
-.mobile_footer .copyright {
-  text-align: center;
-  color: #dedede;
-}
-
-.center {
-  text-align: center;
-}
-
-.mobile_footer .contact {
-  color: #949494;
-  text-align: center;
-}
-
-.mobile_footer .contact a {
-  color: #666;
-  text-decoration: none;
-}
-
-.mobile_footer .contact a:hover {
-  color: #333;
-  text-decoration: underline;
-}
-
-.mobile_footer .lang_row {
-  padding-bottom: 10px;
-}
-
-.mobile_footer .lang_row .my_select_1 {
-  margin: 0;
-  font-size: 100%;
-}
-
-.mobile_footer .lang_row .my_select_1:focus {
-  outline: none;
-}
-
-@media only screen and (max-width: 760px) {
-  html,
-  body {
-    height: auto;
-  }
-
-  .root {
-    display: block;
-    min-height: 0;
-  }
-
-  .root .sidebar {
-    width: 100%;
-    max-width: none;
-    display: block;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 0;
-  }
-
-  .root .sidebar .top {
-    padding-top: 30px;
-    padding-bottom: 20px;
-    text-align: center;
-  }
-
-  .root .sidebar .top .lang {
-    display: none;
-  }
-
-  .root .sidebar .top .desc {
-    margin-top: 14px;
-    padding-right: 0;
-  }
-
-  .root .sidebar .bottom {
-    display: none;
-  }
-
-  .root .apps .app {
-    border-width: 3px;
-    width: 33.33333%;
-  }
-
-  .root .apps .app .padding {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 33px;
-    padding-top: 23px;
-  }
-
-  .root .apps .app .padding .img_cont {
-    min-width: 100px;
-    text-align: center;
-  }
-
-  .root .apps .app .padding .img_cont .js_icon {
-    margin-left: 0 !important;
-  }
-
-  .root .apps .app .padding .text {
-    text-align: center;
-  }
-
-  .root .apps .app .padding .text .title {
-    margin-top: 5px;
-    margin-bottom: 0;
-    font-size: 140%;
-    font-weight: 400;
-  }
-
-  .root .apps .app .padding .text .desc {
-    display: none;
-  }
-
-  .root .apps .app:nth-child(2n) {
-    border-right-width: 3px;
-  }
-
-  .root .apps .app:nth-child(3n) {
-    border-right-width: 0;
-  }
-
-  .mobile_footer {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .root .sidebar {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .root .apps .app {
-    width: 50%;
-  }
-
-  .root .apps .app:nth-child(2n) {
-    border-right-width: 0;
-  }
-
-  .root .apps .app:nth-child(3n) {
-    border-right-width: 3px;
-  }
-}
 
 .root-detail {
   min-height: 100%;
@@ -781,8 +288,8 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 95%;
-  background-color: #f7f7f7;
+  width: 100%;
+  /* background-color: #f7f7f7; */
   /* margin-left: 12px; */
   /* margin-right: 12px; */
   flex: 1;
@@ -796,7 +303,7 @@ export default {
   align-content: flex-start;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding-top: 26px;
+  padding-top: 0;
 }
 
 .root-detail .sub_header .app_desc {
@@ -840,7 +347,7 @@ export default {
   flex: 1 0 auto;
   background-color: #fff;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin-top: 0;
   transition: margin-top 300ms;
 }
 

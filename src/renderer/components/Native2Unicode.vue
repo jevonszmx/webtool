@@ -1,47 +1,52 @@
 <template>
-<div id="mainContent" class="wrapper">
-	<div class="toolName">编码转换</div>
-	<div class="toolUsing clearfix">
-	<div class="toolsTab  clearfix">
-	    <ul class="nav nav-tabs">
-	    	<li class="active"><a  v-on:click="gotoNative2Unicode">Native/Unicode</a></li>
-            <li><a  v-on:click="gotoNative2UTF8">Native/UTF-8</a></li>
-			<li><a  v-on:click="gotoNative2ASCII">Native/ASCII</a></li>
-	    	<li><a  v-on:click="gotourlencode">URL转码</a></li>
-		</ul>
-	</div>
-	<div class="leftBar">
-		<div class="title">Native:</div>
-    	<textarea name="cipher" id="a_source">这是一个例子,this is a example</textarea>
-	</div>
+<div class="container-fluid">
+    <div class="row">
+        <sider></sider>
+        <div class="col-md-10" style="height:800px">
+			<div id="mainContent" class="wrapper">
+				<div class="toolName">编码转换</div>
+				<div class="toolUsing clearfix">
+				<div class="toolsTab  clearfix">
+					<ul class="nav nav-tabs">
+						<li class="active"><a  v-on:click="$router.push({name : 'Native2Unicode' })">Native/Unicode</a></li>
+						<li><a  v-on:click="$router.push({name : 'Native2UTF8' })">Native/UTF-8</a></li>
+						<li><a  v-on:click="$router.push({name : 'Native2ASCII' })">Native/ASCII</a></li>
+						<li><a  v-on:click="$router.push({name : 'urlencode' })">URL转码</a></li>
+						<li><a  v-on:click="$router.push({name : 'Base64' })">Base64转码</a></li>
+					</ul>
+				</div>
+				<div class="leftBar">
+					<div class="title">Native:</div>
+					<textarea name="cipher" id="a_source">这是一个例子,this is a example</textarea>
+				</div>
 
-    <div class="operateLR">
-    	<div class="OptDetail Button">
-			<button class="btn btn-primary" v-on:click="Native2Unicode" > Unicode -&gt;</button>
-            <button class="btn btn-primary" v-on:click="Unicode2Native"> -&lt; Native </button>
+				<div class="operateLR">
+					<div class="OptDetail Button">
+						<button class="btn btn-primary" v-on:click="Native2Unicode" > Unicode -&gt;</button>
+						<button class="btn btn-primary" v-on:click="Unicode2Native"> -&lt; Native </button>
+					</div>
+				</div>
+				<div class="rightBar">
+					<div class="title">Unicode:</div>
+					<textarea name="message" id="u_source" class="text_source"></textarea>
+				</div>
+			</div>
+			</div>
         </div>
     </div>
-    <div class="rightBar">
-		<div class="title">Unicode:</div>
-		<textarea name="message" id="u_source" class="text_source"></textarea>
-    </div>
-</div>
 </div>
 </template>
 
 <script>
-	import $ from 'jquery'
+import $ from 'jquery'
+import sider from './sider'
 	
-  export default {
+export default {
+	components : { sider },
     name: 'Native2Unicode',
     data () {
       return {
-        electron: process.versions.electron,
-        name: this.$route.name,
-        node: process.versions.node,
-        path: this.$route.path,
-        platform: require('os').platform(),
-        vue: require('vue/package.json').version
+
       }
     },
     methods: {
@@ -64,35 +69,15 @@
         $("#a_source").val('');
         for (var i=0; i<code.length; i++)
             $("#a_source").val($("#a_source").val() + String.fromCharCode(code[i].replace(/[&#;]/g, '')));
-      },
-      gotourlencode() {
-		  this.$router.push({
-			  name : 'urlencode'
-		  });
-	  },
-      gotoNative2Unicode() {
-		  this.$router.push({
-			  name : 'Native2Unicode'
-		  });
-	  },
-	  gotoNative2UTF8 () {
-		  this.$router.push({
-			  name : 'Native2UTF8'
-		  });
-	  },
-      gotoNative2ASCII() {
-          this.$router.push({
-			  name : 'Native2ASCII'
-		  });
       }
     }
-  }
+}
 </script>
 
 <style scoped>
 
 .wrapper {
-	width: 1000px;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -400,11 +385,11 @@
 
 /*  左右版式  */
 .leftBar {
-	float: left;
+	/* float: left; */
 }
 
 .rightBar {
-	float: right;
+	/* float: right; */
 }
 
 .leftBar .title,.rightBar .title {
@@ -414,15 +399,16 @@
 }
 
 .leftBar textarea,.rightBar textarea {
-	width: 400px;
-	height: 500px;
+	width: 100%;
+	height: 200px;
 }
 
 .operateLR {
 	float: left;
-	width: 150px;
+	width: 100%;
+	height: 50px;
 	text-align: left;
-	margin: 50px 5px 0 30px;
+	margin: 10px 0 0 10px;
 }
 /*  END 左右版式  */
 

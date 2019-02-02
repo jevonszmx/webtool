@@ -5,7 +5,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    
+    {
+      path: '/',
+      name: 'index',
+      component: require('@/components/index').default
+    },
     {
       path: '/Native2Unicode',
       name: 'Native2Unicode',
@@ -42,8 +46,13 @@ export default new Router({
       component: require('@/components/Crontab').default
     },
     {
+      path: '/Base64',
+      name: 'Base64',
+      component: require('@/components/Base64').default
+    },
+    {
       path: '*',
-      redirect: '/Crontab'
+      redirect: '/'
     }
   ]
 })
