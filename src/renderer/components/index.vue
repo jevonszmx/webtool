@@ -48,6 +48,18 @@
             <div class="col-md-3">
                 <div class="list-group">
                 <p href="#" class="list-group-item active">
+                    压缩
+                </p>
+                <a href="#" v-on:click="$router.push({name : 'JSONMinify'});" class="list-group-item">JSON压缩</a>
+                <a href="#" v-on:click="$router.push({name : 'JSONMinify'});" class="list-group-item">CSS压缩</a>
+                <a href="#" v-on:click="$router.push({name : 'JSONMinify'});" class="list-group-item">XML压缩</a>
+                <a href="#" v-on:click="$router.push({name : 'JSONMinify'});" class="list-group-item">SQL压缩</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="list-group">
+                <p href="#" class="list-group-item active">
                     Markdown
                 </p>
                 <a href="#" v-on:click="$router.push({name : 'Markdown'});" class="list-group-item">Markdown</a>

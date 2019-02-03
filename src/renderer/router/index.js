@@ -65,6 +65,11 @@ export default new Router({
       name: 'JSONFormat',
       component: require('@/components/JSONFormat').default
     },
+    {
+      path: '/JSONMinify',
+      name: 'JSONMinify',
+      component: require('@/components/JSONMinify').default
+    },
     
     {
       path: '*',
