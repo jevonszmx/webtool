@@ -10,6 +10,7 @@
         <li><a href="#" class="white" v-on:click="$router.push({name: 'index'})">首页</a></li>
         <li><a href="#" v-on:click="$router.push({name : 'urlencode'});" class="white">URL转码</a></li>
         <li><a href="#" v-on:click="$router.push({name : 'Unixtime'});" class="white">时间戳转换</a></li>
+        <li><a href="#" v-on:click="$router.push({name : 'Md5'});" class="white">MD5加密</a></li>
     </ul>
 </div>
        

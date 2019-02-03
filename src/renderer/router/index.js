@@ -56,6 +56,11 @@ export default new Router({
       component: require('@/components/Md5').default
     },
     {
+      path: '/Markdown',
+      name: 'Markdown',
+      component: require('@/components/Markdown').default
+    },
+    {
       path: '*',
       redirect: '/'
     }
