@@ -36,6 +36,18 @@
             <div class="col-md-3">
                 <div class="list-group">
                 <p href="#" class="list-group-item active">
+                    格式化
+                </p>
+                <a href="#" v-on:click="$router.push({name : 'JSONFormat'});" class="list-group-item">JSON格式化</a>
+                <a href="#" v-on:click="$router.push({name : 'JSONFormat'});" class="list-group-item">CSS格式化</a>
+                <a href="#" v-on:click="$router.push({name : 'JSONFormat'});" class="list-group-item">XML格式化</a>
+                <a href="#" v-on:click="$router.push({name : 'JSONFormat'});" class="list-group-item">SQL格式化</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="list-group">
+                <p href="#" class="list-group-item active">
                     Markdown
                 </p>
                 <a href="#" v-on:click="$router.push({name : 'Markdown'});" class="list-group-item">Markdown</a>

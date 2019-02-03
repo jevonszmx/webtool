@@ -61,6 +61,12 @@ export default new Router({
       component: require('@/components/Markdown').default
     },
     {
+      path: '/JSONFormat',
+      name: 'JSONFormat',
+      component: require('@/components/JSONFormat').default
+    },
+    
+    {
       path: '*',
       redirect: '/'
     }
