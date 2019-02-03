@@ -17,7 +17,8 @@
                 <a href="#" v-on:click="$router.push({name : 'Native2Unicode'});" class="list-group-item">Native转Unicode</a>
                 <a href="#" v-on:click="$router.push({name : 'Native2UTF8'});" class="list-group-item">Native转UTF8</a>
                 <a href="#" v-on:click="$router.push({name : 'urlencode'});" class="list-group-item">URL转码</a>
-                <a href="#" v-on:click="$router.push({name : 'Base64' })" class="list-group-item">Base64转码</a></li>
+                <a href="#" v-on:click="$router.push({name : 'Base64' })" class="list-group-item">Base64转码</a>
+                <a href="#" v-on:click="$router.push({name : 'Md5' })" class="list-group-item">MD5加密</a>
                 </div>
             </div>
 

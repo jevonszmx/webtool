@@ -51,6 +51,11 @@ export default new Router({
       component: require('@/components/Base64').default
     },
     {
+      path: '/Md5',
+      name: 'Md5',
+      component: require('@/components/Md5').default
+    },
+    {
       path: '*',
       redirect: '/'
     }
