@@ -8,8 +8,7 @@
 				<div class="toolUsing clearfix">
 				
 				<div class="leftBar">
-					<textarea name="cipher" id="a_source">
-					</textarea>
+					<textarea name="cipher" id="a_source"></textarea>
 				</div>
 
 				<div class="operateLR">
@@ -33,7 +32,7 @@
 <script>
 import $ from 'jquery'
 import sider from './sider'
-const vkbeautify = require('vkbeautify4kso')
+import vkbeautify from 'vkbeautify'
 	
 export default {
 	components : { sider },

@@ -8,9 +8,7 @@
 				<div class="toolUsing clearfix">
 				
 				<div class="leftBar">
-					<textarea name="cipher" id="a_source">
-{"name":"value"}
-					</textarea>
+					<textarea name="cipher" id="a_source">{"name":"value"}</textarea>
 				</div>
 
 				<div class="operateLR">
@@ -34,7 +32,7 @@
 <script>
 import $ from 'jquery'
 import sider from './sider'
-const vkbeautify = require('vkbeautify4kso')
+import vkbeautify from 'vkbeautify'
 	
 export default {
 	components : { sider },
@@ -113,77 +111,6 @@ export default {
 	width: 100%;
 	margin: 0 auto;
 }
-
-.clearfix:after {
-	clear: both;
-	content: " ";
-	display: block;
-	font-size: 0;
-	height: 0;
-	visibility: hidden;
-}
-
-.clearfix {
-	display: block;
-	height: 1%;
-}
-
-.texthidden {
-	text-indent: -9999px;
-	white-space: nowrap;
-	line-height: 0;
-}
-
-.mr20 {
-	margin-right: 20px;
-}
-
-#header {
-	
-	height: 50px;
-	width:100%;
-}
-
-
-#mainSearch {
-	float: right;
-	margin-top: 10px;
-}
-
-.searchBox {
-	height: 30px;
-	line-height: 30px;
-	padding: 0 15px 0 5px;
-	background-color: #fff;
-	color: #aaa;
-	font-size: 14px;
-	vertical-align: middle;
-}
-
-.searchButton {
-	display: inline-block;
-	padding: 2px 5px;
-	margin-left: 20px;
-	*height: 30px;
-	height: 30px\9;
-	background-color: #ff9600;
-	font-size: 18px;
-	color: #fff;
-	cursor: pointer;
-	vertical-align: middle;
-}
-
-.searchButton:hover {
-	background-color: #ff8000;
-}
-
-
-#footer {
-	margin-top: 20px;
-	background-color: #ececec;
-	line-height: 30px;
-}
-/* END 公共部分 */
 
 /*  INDEX  */
 .column {
@@ -374,45 +301,6 @@ export default {
 	color: #006cbf;
 }
 
-/*  description  */
-.description {
-	background-color: #dff5fe;
-	padding: 15px 10px;
-	margin-top: -4px;
-}
-
-.description h2,.intro,.tags {
-	width: 874px;
-	float: right;
-}
-
-.description h2 {
-	line-height: 24px;
-	font-size: 18px;
-}
-
-.description .img {
-	float: left;
-	margin-right: 10px;
-	width: 96px;
-}
-
-.description .intro {
-	margin: 5px 0;
-}
-
-.description .tags {
-	font-size: 12px;
-	color: #909090;
-}
-
-.toolName {
-	line-height:24px;
-	font-size: 24px;
-	color: #777;
-	margin-top: 10px;
-}
-/* 　END description  */
 
 /*  END public  */
 

@@ -206,7 +206,6 @@ export default {
             $('#base_58').val(bases.toBase(num, 58));
             $('#base_62').val(bases.toBase(num, 62));
             $('#base_64').val(bases.toBase(num, 64));
-
         }
       
     }
