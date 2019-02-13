@@ -1,10 +1,10 @@
-# webtool
+# webtool 开发者工具
 
 ![launch page](https://raw.githubusercontent.com/jevonszmx/webtool/master/screenshot/1.jpg)
 
-![unixtime page](https://raw.githubusercontent.com/jevonszmx/webtool/master/screenshot/2.jpg)
 
-> some webtool
+> 一些常用的开发者工具，比如时间戳转换、JSON/XML压缩格式化等，不用每次都打开网页处理。
+> 基于electron-vue开发, UI暂时使用Bootstrap。
 
 #### Build Setup
 
@@ -20,7 +20,3 @@ npm run build
 
 
 ```
-
----
-
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[8fae476](https://github.com/SimulatedGREG/electron-vue/tree/8fae4763e9d225d3691b627e83b9e09b56f6c935) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
