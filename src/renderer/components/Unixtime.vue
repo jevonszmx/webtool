@@ -3,12 +3,9 @@
   <div class="row">
     <sider></sider>
     <div class="col-md-10" style="height:800px;overflow: scroll;">
-        <div class="root-detail container-fluid">
-            <div class="sub_header">
-              <div class="app_desc">
-                  <h2>&nbsp;&nbsp;Unixtime时间戳转换</h2>
-                </div>
-              </div>
+        <div class="wrapper">
+              <div class="app_desc h2">时间戳转换</div>
+              <hr />
               <div class="app">
                 <div class="view search-box">
                   <div class="m20">
@@ -16,7 +13,7 @@
                       <div class="mt20">
                         <label class="pull-left w110">现在：</label>
                         <div class="pull-left">
-                          <a id="js_timestamp_now" href="javascript:;"></a>
+                          <p id="js_timestamp_now"></p>
                         </div>
                         <div class="clearfix"></div>
                       </div>
@@ -47,14 +44,14 @@
                         </div>
                       </div>
                       <div class="clearfix"></div>
-                      <div class="layui-col-md12 mt20">
-                        <fieldset class="layui-elem-field layui-field-title site-title">
+                      <div class="mt20">
+                        <fieldset>
                           <legend>
                             <a name="default">描述</a>
                           </legend>
                         </fieldset>
                       </div>
-                      <table class="layui-table">
+                      <table class="table">
                         <tbody>
                           <tr>
                             <td width="20%">Swift</td>
@@ -259,112 +256,8 @@ export default {
 </script>
 
 <style scoped>
-
-
-.root-detail {
-  min-height: 100%;
-  padding-bottom: 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  /* background-color: #f7f7f7; */
-  /* margin-left: 12px; */
-  /* margin-right: 12px; */
-  flex: 1;
-  /* max-width: 1100px */
-}
-
-.root-detail .sub_header {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-content: flex-start;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  padding-top: 0;
-}
-
-.root-detail .sub_header .app_desc {
-  margin-top: 10px;
-}
-
-.root-detail .sub_header .app_desc h1 {
-  font-size: 240%;
-  font-weight: 400;
-  line-height: 1;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 10px;
-  color: #333;
-  letter-spacing: -1px;
-}
-
-.root-detail .sub_header .app_desc .desc {
-  padding: 0;
-  padding-bottom: 2px;
-  margin: 0;
-  margin-top: 10px;
-  font-weight: 300;
-  font-size: 72%;
-  color: #999;
-  overflow-y: hidden;
-  transition: all 300ms;
-  max-height: 50px;
-  opacity: 1;
-  padding-right: 15px;
-}
-
-.root-detail .sub_header .ad {
-  margin-top: 10px;
-  min-height: 60px;
-  flex: 1;
-  text-align: right;
-}
-
-.root-detail .app {
-  flex: 1 0 auto;
-  background-color: #fff;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-  margin-top: 0;
-  transition: margin-top 300ms;
-}
-
-.root-detail .app .view {
-  width: 100%;
-}
-
-.waves-effect {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.waves-effect:hover {
-  color: #39bf83;
-}
-
 .mt10 {
   margin-top: 10px !important;
-}
-
-.CodeMirror-line-numbers {
-  width: 2.2em;
-  color: #aaa;
-  background-color: #eee;
-  text-align: right;
-  padding-right: 0.3em;
-  font-size: 10pt;
-  font-family: monospace;
-  padding-top: 0.4em;
-  line-height: normal;
 }
 
 .m10 {
@@ -431,127 +324,17 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.custom-btn-color {
-  background-color: #9377ce !important;
+
+.w110 {
+  width: 90px !important;
 }
 
-.CodeMirror-code {
-  color: #484646 !important;
+.w260 {
+  width: auto !important;
 }
 
-.layui-timeline-item {
-  padding-bottom: 0 !important;
-}
-
-.layui-elem-quote {
-  margin-bottom: 0 !important;
-}
-
-.layui-form-select dl dd.layui-this {
-  background-color: #8e78c9 !important;
-}
-
-.layui-form-select {
-  text-align: left !important;
-}
-
-@media only screen and (max-width: 480px) {
-  .header-timeline,
-  .header-shang,
-  .header-link {
-    display: none;
-  }
-
-  .sub_header {
-    padding-top: 2px !important;
-  }
-
-  .group-custom {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .group-custom-innel {
-    margin: 10px 0;
-  }
-
-  #CollapsibleViewDetail a {
-    padding-left: 8px !important;
-  }
-
-  .w110 {
-    width: 90px !important;
-  }
-
-  .w260 {
-    width: auto !important;
-  }
-
-  .w210 {
-    width: 200px !important;
-  }
-
-  .label-select {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .layui-input-block {
-    margin-left: 80px !important;
-  }
-
-  .layui-form-label {
-    width: 40px !important;
-  }
-
-  .layui-input-custom {
-    width: 68% !important;
-  }
-
-  .root-detail .sub_header .app_desc {
-    margin-bottom: 20px;
-  }
-
-  .root-detail .sub_header .app_desc .desc {
-    font-size: 14px !important;
-  }
-
-  .mt20 {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
-  .ml20 {
-    margin-left: 0 !important;
-  }
-
-  .mtb20 {
-    margin-left: 20px;
-  }
-
-  .m20 {
-    margin: 8px !important;
-  }
-
-  .root-detail .sub_header .app_desc h1 {
-    font-size: 220% !important;
-  }
-}
-
-.theme_color {
-  color: #8e78c9;
-}
-
-h1,
-h2,
-h3 {
-  font-size: 20px;
-}
-
-.cus_h1 {
-  font-weight: 200;
-  display: inline-block;
-  margin-left: 8px;
+.w210 {
+  width: 200px !important;
 }
 
 .w200 {

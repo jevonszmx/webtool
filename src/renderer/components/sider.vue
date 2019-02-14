@@ -24,7 +24,10 @@ ul.sider {
 ul.sider li {
     height: 30px;
 }
- a.white, a.white:hover {
-     color:white;
- }
+ul.sider li a {
+    font-size: 16px;
+}
+a.white, a.white:hover {
+    color:white;
+}
 </style>
