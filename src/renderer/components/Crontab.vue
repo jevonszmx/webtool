@@ -5,9 +5,9 @@
         <div class="col-md-10" style="height:800px">
             <div class="root-detail">
             <div class="sub_header">
-                <div class="app_desc">
+              <div class="app_desc">
                 <h2>Crontab表达式生成</h2>
-                </div>
+              </div>
             </div>
             <div class="app">
                 <div class="view search-box">
@@ -76,10 +76,9 @@ export default {
     createCrontab () {
         var link = $("#content").val();
         if (link == '') {
-            // layer.msg("内容不能空.");
+            alert("内容不能空.");
             return;
         }
-        // layer.load();
         var sched = later.parse.cron(link);
         later.date.localTime();
         var results = later.schedule(sched).next(5);
@@ -87,7 +86,6 @@ export default {
         for (var i = 0; i < results.length; i++) {
             $(".layui-card-body").append(results[i].toLocaleString() + "<hr/>");
         }
-        // layer.closeAll();
     }
   }
 };

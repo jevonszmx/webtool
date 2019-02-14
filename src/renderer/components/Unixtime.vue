@@ -1,182 +1,162 @@
 <template>
 <div class="container-fluid">
-    <div class="row">
-        <sider></sider>
-        <div class="col-md-10" style="height:800px;overflow: scroll;">
+  <div class="row">
+    <sider></sider>
+    <div class="col-md-10" style="height:800px;overflow: scroll;">
         <div class="root-detail container-fluid">
             <div class="sub_header">
               <div class="app_desc">
-                <h2>&nbsp;&nbsp;Unixtime时间戳转换</h2>
-              </div>
-            </div>
-            <div class="app">
-              <div class="view search-box">
-                <div class="m20">
-                  <div class="show-area">
-                    <div class="mt20">
-                      <label class="pull-left w110">现在：</label>
-                      <div class="pull-left">
-                        <a id="js_timestamp_now" href="javascript:;"></a>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="mt20">
-                      <label class="pull-left w110">时间戳：</label>
-                      <div class="pull-left w210">
-                        <input
-                          type="text"
-                          placeholder="请填写时间戳"
-                          value
-                          id="js_timestamp"
-                          class="form-control w200"
-                        >
-                      </div>
-                      <div class="pull-left ml20">
-                        <button
-                          class="btn btn-primary"
-                          id="js_convert_timestamp"
-                          v-on:click="convertFromUnixtime"
-                        >转换</button>
-                      </div>
-                      <div class="pull-left ml20">
-                        <input type="text" placeholder id="js_datetime" value class="form-control w200">
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-
-                    <div class="mt20">
-                      <label class="pull-left w110">时间：</label>
-                      <div class="pull-left w210">
-                        <input
-                          type="text"
-                          placeholder="YYYY-MM-DD HH:mm:ss"
-                          id="js_datetime_o"
-                          value="2019-02-01 17:03:13"
-                          class="form-control w200"
-                        >
-                      </div>
-                      <div class="pull-left ml20">
-                        <button
-                          class="btn btn-primary"
-                          id="js_convert_datetime"
-                          v-on:click="convert2Unixtime"
-                        >转换</button>
-                      </div>
-                      <div class="pull-left ml20 w260">
-                        <input type="text" placeholder value id="js_timestamp_o" class="form-control w200">
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="layui-col-md12 mt20">
-                      <fieldset class="layui-elem-field layui-field-title site-title">
-                        <legend>
-                          <a name="default">描述</a>
-                        </legend>
-                      </fieldset>
-                    </div>
-                    <table class="layui-table">
-                      <tbody>
-                        <tr>
-                          <td width="20%">Swift</td>
-                          <td>
-                            <pre> <code>NSDate().timeIntervalSince1970</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Go</td>
-                          <td>
-                            <pre><code>import (&quot;time&quot;)int32(time.Now().Unix())</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Java</td>
-                          <td>
-                            <pre><code>// pure java(int) (System.currentTimeMillis() / 1000)</code></pre>
-                            <pre><code>// joda (int) (DateTime.now().getMillis() / 1000)</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>JavaScript</td>
-                          <td>
-                            <pre><code>Math.round(new Date() / 1000)</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Objective-C</td>
-                          <td>
-                            <pre><code>[[NSDate date] timeIntervalSince1970]</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>MySQL</td>
-                          <td>
-                            <pre><code>SELECT unix_timestamp(now())</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>SQLite</td>
-                          <td>
-                            <pre><code>SELECT strftime('%s', 'now')</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Erlang</td>
-                          <td>
-                            <pre><code>calendar:datetime_to_gregorian_seconds(calendar:universal_time())-719528*24*3600.</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>PHP</td>
-                          <td>
-                            <pre><code>time()</code></pre>
-                            <pre><code>strtotime('2019-01-01 12:13:15')</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Python</td>
-                          <td>
-                            <pre><code>import timetime.time()</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Ruby</td>
-                          <td>
-                            <pre><code>Time.now.to_i</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Shell</td>
-                          <td>
-                            <pre><code>date +%s</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Groovy</td>
-                          <td>
-                            <pre><code>(new Date().time / 1000).intValue()</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Lua</td>
-                          <td>
-                            <pre><code>os.time()</code></pre>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>.NET/C#</td>
-                          <td>
-                            <pre><code>(DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000</code></pre>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <h2>&nbsp;&nbsp;Unixtime时间戳转换</h2>
                 </div>
               </div>
+              <div class="app">
+                <div class="view search-box">
+                  <div class="m20">
+                    <div class="show-area">
+                      <div class="mt20">
+                        <label class="pull-left w110">现在：</label>
+                        <div class="pull-left">
+                          <a id="js_timestamp_now" href="javascript:;"></a>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="mt20">
+                        <label class="pull-left w110">时间戳：</label>
+                        <div class="pull-left w210">
+                          <input type="text" placeholder="请填写时间戳" value id="js_timestamp" class="form-control w200" >
+                        </div>
+                        <div class="pull-left ml20">
+                          <button class="btn btn-primary" id="js_convert_timestamp" v-on:click="convertFromUnixtime">转换</button>
+                        </div>
+                        <div class="pull-left ml20">
+                          <input type="text" placeholder id="js_datetime" value class="form-control w200">
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+
+                      <div class="mt20">
+                        <label class="pull-left w110">时间：</label>
+                        <div class="pull-left w210">
+                          <input type="text" placeholder="YYYY-MM-DD HH:mm:ss" id="js_datetime_o" value="2019-02-01 17:03:13" class="form-control w200" >
+                        </div>
+                        <div class="pull-left ml20">
+                          <button class="btn btn-primary" id="js_convert_datetime" v-on:click="convert2Unixtime">转换</button>
+                        </div>
+                        <div class="pull-left ml20 w260">
+                          <input type="text" placeholder value id="js_timestamp_o" class="form-control w200">
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="layui-col-md12 mt20">
+                        <fieldset class="layui-elem-field layui-field-title site-title">
+                          <legend>
+                            <a name="default">描述</a>
+                          </legend>
+                        </fieldset>
+                      </div>
+                      <table class="layui-table">
+                        <tbody>
+                          <tr>
+                            <td width="20%">Swift</td>
+                            <td>
+                              <pre> <code>NSDate().timeIntervalSince1970</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td>
+                              <pre><code>import (&quot;time&quot;)int32(time.Now().Unix())</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Java</td>
+                            <td>
+                              <pre><code>// pure java(int) (System.currentTimeMillis() / 1000)</code></pre>
+                              <pre><code>// joda (int) (DateTime.now().getMillis() / 1000)</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>JavaScript</td>
+                            <td>
+                              <pre><code>Math.round(new Date() / 1000)</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Objective-C</td>
+                            <td>
+                              <pre><code>[[NSDate date] timeIntervalSince1970]</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>MySQL</td>
+                            <td>
+                              <pre><code>SELECT unix_timestamp(now())</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SQLite</td>
+                            <td>
+                              <pre><code>SELECT strftime('%s', 'now')</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td>
+                              <pre><code>calendar:datetime_to_gregorian_seconds(calendar:universal_time())-719528*24*3600.</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>PHP</td>
+                            <td>
+                              <pre><code>time()</code></pre>
+                              <pre><code>strtotime('2019-01-01 12:13:15')</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Python</td>
+                            <td>
+                              <pre><code>import timetime.time()</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Ruby</td>
+                            <td>
+                              <pre><code>Time.now.to_i</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Shell</td>
+                            <td>
+                              <pre><code>date +%s</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Groovy</td>
+                            <td>
+                              <pre><code>(new Date().time / 1000).intValue()</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Lua</td>
+                            <td>
+                              <pre><code>os.time()</code></pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>.NET/C#</td>
+                            <td>
+                              <pre><code>(DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000</code></pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
     </div>
-	</div>  
+  </div>  
 </div>
 </template>
 

@@ -11,7 +11,7 @@
             </div>
             <div class="app">
                 <div class="view">
-                    <textarea name="code" class="code form-control" id="code" > 欢迎,如果您觉得还不错,麻烦分享给您的朋友,谢谢. </textarea>
+                    <textarea name="code" class="code form-control" id="code" ></textarea>
                 </div>
             </div>
             <p class="clearfix"></p>
@@ -32,7 +32,6 @@
 <script>
 import $ from "jquery";
 import md5 from "md5";
-import layer from "layer";
 import sider from './sider'
 	
 export default {

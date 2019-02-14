@@ -7,86 +7,85 @@
             <div class="app">
                 <div class="view search-box">
                 <div class=" mtb20">
-                <fieldset class=" site-title">
-                <legend>&nbsp;&nbsp;进制转换</legend>
-                </fieldset>
-                <blockquote class="">
-                    js中规定安全整数的范围是-2^53~2^53，所以大于 9007199254740991 &lt;的数进制转换会存在精度问题&gt;
-                </blockquote>
-                <p class="clearfix  radio-div"> <label for="hex_2"><input type="radio" class="js-hex" name="hex" id="hex_2" value="2" /> 2 进制</label> <label for="hex_8"><input type="radio" class="js-hex" name="hex" id="hex_8" value="8" /> 8 进制</label> <label for="hex_10"><input type="radio" class="js-hex" name="hex" id="hex_10" value="10" checked="" /> 10 进制</label> <label for="hex_16"><input type="radio" class="js-hex" name="hex" id="hex_16" value="16" /> 16 进制</label> <label for="hex_32"><input type="radio" class="js-hex" name="hex" id="hex_32" value="32" /> 32 进制</label> <label for="hex_36"><input type="radio" class="js-hex" name="hex" id="hex_36" value="36" /> 36 进制</label> <label for="hex_58"><input type="radio" class="js-hex" name="hex" id="hex_58" value="58" /> 58 进制</label> <label for="hex_62"><input type="radio" class="js-hex" name="hex" id="hex_62" value="62" /> 62 进制</label> <label for="hex_64"><input type="radio" class="js-hex" name="hex" id="hex_64" value="64" /> 64 进制</label></p>
-                <div class="mtb20"> 
-                    <input type="text" id="num" name="num" class="form-control w200 cus-input" style="display: inline-block" value="1987" /> 
-                    <button type="button" class="btn btn-primary" v-on:click="convertHex">转换</button>
-                </div>
+                    <fieldset class=" site-title">
+                    <legend>&nbsp;&nbsp;进制转换</legend>
+                    </fieldset>
+                    <blockquote class="">
+                        js中规定安全整数的范围是-2^53~2^53，所以大于 9007199254740991 &lt;的数进制转换会存在精度问题&gt;
+                    </blockquote>
+                    <p class="clearfix  radio-div"> <label for="hex_2"><input type="radio" class="js-hex" name="hex" id="hex_2" value="2" /> 2 进制</label> <label for="hex_8"><input type="radio" class="js-hex" name="hex" id="hex_8" value="8" /> 8 进制</label> <label for="hex_10"><input type="radio" class="js-hex" name="hex" id="hex_10" value="10" checked="" /> 10 进制</label> <label for="hex_16"><input type="radio" class="js-hex" name="hex" id="hex_16" value="16" /> 16 进制</label> <label for="hex_32"><input type="radio" class="js-hex" name="hex" id="hex_32" value="32" /> 32 进制</label> <label for="hex_36"><input type="radio" class="js-hex" name="hex" id="hex_36" value="36" /> 36 进制</label> <label for="hex_58"><input type="radio" class="js-hex" name="hex" id="hex_58" value="58" /> 58 进制</label> <label for="hex_62"><input type="radio" class="js-hex" name="hex" id="hex_62" value="62" /> 62 进制</label> <label for="hex_64"><input type="radio" class="js-hex" name="hex" id="hex_64" value="64" /> 64 进制</label></p>
+                    <div class="mtb20"> 
+                        <input type="text" id="num" name="num" class="form-control w200 cus-input" style="display: inline-block" value="1987" /> 
+                        <button type="button" class="btn btn-primary" v-on:click="convertHex">转换</button>
+                    </div>
 
-                <table class="table table-bordered table-condensed table-striped">
-                    <thead>
-                    <tr>
-                    <th width="10%">进制</th>
-                    <th width="55%">结果</th>
-                    <th width="35%">描述</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td>2</td>
-                    <td><input type="text" class="form-control w200" id="base_2" value="" /></td>
-                    <td></td>
-                    </tr>
-                    <tr>
-                    <td>8</td>
-                    <td><input type="text" class="form-control w200" id="base_8" value="" /></td>
-                    <td></td>
-                    </tr>
-                    <tr>
-                    <td>10</td>
-                    <td><input type="text" class="form-control w200" id="base_10" value="" /></td>
-                    <td></td>
-                    </tr>
-                    <tr>
-                    <td>16</td>
-                    <td><input type="text" class="form-control w200" id="base_16" value="" /></td>
-                    <td></td>
-                    </tr>
-                    <tr>
-                    <td>26</td>
-                    <td><input type="text" class="form-control w200" id="base_26" value="" /></td>
-                    <td>小写字母</td>
-                    </tr>
-                    <tr>
-                    <td>32</td>
-                    <td><input type="text" class="form-control w200" id="base_32" value="" /></td>
-                    <td>不包含 ILOU 字符</td>
-                    </tr>
-                    <tr>
-                    <td>36</td>
-                    <td><input type="text" class="form-control w200" id="base_36" value="" /></td>
-                    <td>数字 + 小写字母</td>
-                    </tr>
-                    <tr>
-                    <td>52</td>
-                    <td><input type="text" class="form-control w200" id="base_52" value="" /></td>
-                    <td>大写字母 + 小写字母</td>
-                    </tr>
-                    <tr>
-                    <td>58</td>
-                    <td><input type="text" class="form-control w200" id="base_58" value="" /></td>
-                    <td>不包含 0OlI 字符</td>
-                    </tr>
-                    <tr>
-                    <td>62</td>
-                    <td><input type="text" class="form-control w200" id="base_62" value="" /></td>
-                    <td>数字 + 小写字母 + 大写字母</td>
-                    </tr>
-                    <tr>
-                    <td>64</td>
-                    <td><input type="text" class="form-control w200" id="base_64" value="" /></td>
-                    <td></td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                </div>
+                    <table class="table table-bordered table-condensed table-striped">
+                        <thead>
+                        <tr>
+                            <th width="10%">进制</th>
+                            <th width="55%">结果</th>
+                            <th width="35%">描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text" class="form-control w200" id="base_2" value="" /></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><input type="text" class="form-control w200" id="base_8" value="" /></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td><input type="text" class="form-control w200" id="base_10" value="" /></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td><input type="text" class="form-control w200" id="base_16" value="" /></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>26</td>
+                            <td><input type="text" class="form-control w200" id="base_26" value="" /></td>
+                            <td>小写字母</td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td><input type="text" class="form-control w200" id="base_32" value="" /></td>
+                            <td>不包含 ILOU 字符</td>
+                        </tr>
+                        <tr>
+                            <td>36</td>
+                            <td><input type="text" class="form-control w200" id="base_36" value="" /></td>
+                            <td>数字 + 小写字母</td>
+                        </tr>
+                        <tr>
+                            <td>52</td>
+                            <td><input type="text" class="form-control w200" id="base_52" value="" /></td>
+                            <td>大写字母 + 小写字母</td>
+                        </tr>
+                        <tr>
+                            <td>58</td>
+                            <td><input type="text" class="form-control w200" id="base_58" value="" /></td>
+                            <td>不包含 0OlI 字符</td>
+                        </tr>
+                        <tr>
+                            <td>62</td>
+                            <td><input type="text" class="form-control w200" id="base_62" value="" /></td>
+                            <td>数字 + 小写字母 + 大写字母</td>
+                        </tr>
+                        <tr>
+                            <td>64</td>
+                            <td><input type="text" class="form-control w200" id="base_64" value="" /></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
             </div>
             </div>
@@ -98,7 +97,7 @@
 <script>
     import $ from 'jquery'
     
-    var bases = (typeof exports !== 'undefined' ? exports: (window.Bases = {}));
+    const bases = (typeof exports !== 'undefined' ? exports: (window.Bases = {}));
             bases.toAlphabet = function(num, alphabet) {
                 var base = alphabet.length;
                 var digits = [];

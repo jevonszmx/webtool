@@ -3,46 +3,46 @@
     <div class="row">
         <sider></sider>
         <div class="col-md-10" style="height:800px">
-			<div id="mainContent" class="wrapper">
-				<div class="toolName">Markdown转换</div>
-				<div class="toolUsing clearfix">
-				
-				<div class="leftBar">
-					<div class="title">Markdown:</div>
-					<textarea name="cipher" id="a_source"># webtool
+					<div id="mainContent" class="wrapper">
+						<div class="toolName">Markdown转换</div>
+						<div class="toolUsing clearfix">
+							<div class="leftBar">
+								<div class="title">Markdown:</div>
+								<textarea name="cipher" id="a_source">
+								# webtool
 
-> some webtool
+								> some webtool
 
-#### Build Setup
+								#### Build Setup
 
-``` 
-# install dependencies
-npm install
+								``` 
+								# install dependencies
+								npm install
 
-# serve with hot reload at localhost:9080
-npm run dev
+								# serve with hot reload at localhost:9080
+								npm run dev
 
-# build electron application for production
-npm run build
+								# build electron application for production
+								npm run build
 
 
-```
-</textarea>
-				</div>
+								```
+								</textarea>
+							</div>
 
-				<div class="operateLR">
-					<div class="OptDetail Button">
-						<button class="btn btn-primary" v-on:click="markdown2Html" > Markdown -> html </button>
-						<!-- <button class="btn btn-primary" v-on:click="html2Markdown"> html =>  Markdown </button> -->
+							<div class="operateLR">
+								<div class="OptDetail Button">
+									<button class="btn btn-primary" v-on:click="markdown2Html" > Markdown -> html </button>
+									<!-- <button class="btn btn-primary" v-on:click="html2Markdown"> html =>  Markdown </button> -->
+								</div>
+							</div>
+							<div class="rightBar">
+								<div class="title">Html:</div>
+								<textarea name="message" id="u_source" class="text_source"></textarea>
+							</div>
 					</div>
 				</div>
-				<div class="rightBar">
-					<div class="title">Html:</div>
-					<textarea name="message" id="u_source" class="text_source"></textarea>
-				</div>
 			</div>
-			</div>
-        </div>
     </div>
 </div>
 </template>
@@ -68,7 +68,6 @@ export default {
             return; 
         }
 		$("#u_source").val('');
-		
         $("#u_source").val(markdown.toHTML(a_s));
       } 
     }
@@ -285,12 +284,7 @@ export default {
 /*  tools  */
 
 /*  public  */
-#header { /*  重置header  */
-	/*background: #006cbf url(../img/headerBg.gif) left bottom repeat-x;*/
-	height: 55px;
-	position: relative;
-	z-index: 1;
-}
+
 
 #mainContent textarea,#mainContent input[type='text'] { /*  定义textarea和input边框样式  */
 	border: 1px solid #ccc;
@@ -420,34 +414,6 @@ export default {
 }
 
 /*  END 上下版式  */
-
-/*  工具切换
-.toolsTab {
-	margin-bottom: 10px;
-	line-height: 40px;
-	background-color: #f6fcff;
-	font-size: 18px;
-}
-  
-
-.toolsTab li {
-	float: left;
-	padding: 0 10px;
-	background-color: #e8e8e8;
-	color: #000;
-	cursor: pointer;
-	border-right:1px solid #ccc;
-}
-
-.toolsTab li.focus {
-	margin-right: 1px;
-	margin-top: -1px;
-	background-color: #0f5992;
-	color: #fff;
-	line-height: 42px;
-}
-*/
-/*  END 工具切换  */
 
 /*  表格样式  */
 .toolTable {

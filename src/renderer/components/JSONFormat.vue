@@ -245,7 +245,6 @@ export default {
 
 /*  public  */
 #header { /*  重置header  */
-	/*background: #006cbf url(../img/headerBg.gif) left bottom repeat-x;*/
 	height: 55px;
 	position: relative;
 	z-index: 1;
@@ -340,34 +339,6 @@ export default {
 }
 
 /*  END 上下版式  */
-
-/*  工具切换
-.toolsTab {
-	margin-bottom: 10px;
-	line-height: 40px;
-	background-color: #f6fcff;
-	font-size: 18px;
-}
-  
-
-.toolsTab li {
-	float: left;
-	padding: 0 10px;
-	background-color: #e8e8e8;
-	color: #000;
-	cursor: pointer;
-	border-right:1px solid #ccc;
-}
-
-.toolsTab li.focus {
-	margin-right: 1px;
-	margin-top: -1px;
-	background-color: #0f5992;
-	color: #fff;
-	line-height: 42px;
-}
-*/
-/*  END 工具切换  */
 
 /*  表格样式  */
 .toolTable {
