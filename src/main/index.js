@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -13,7 +13,29 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
+
 function createWindow () {
+    // 增加菜单，支持复制粘贴
+    const template = [{
+        label: "关于",
+        submenu: [
+            { label: "关于", selector: "orderFrontStandardAboutPanel:" },
+            { type: "separator" },
+            { label: "退出", accelerator: "Command+Q", click: function() { app.quit(); }}
+        ]}, {
+        label: "编辑",
+        submenu: [
+            { label: "取消", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+            { label: "重做", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+            { type: "separator" },
+            { label: "剪切", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+            { label: "复制", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+            { label: "粘贴", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+            { label: "全选", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+        ]}
+    ];
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
   /**
    * Initial window options
    */
