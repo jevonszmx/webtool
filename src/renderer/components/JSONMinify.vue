@@ -4,7 +4,7 @@
             <sider></sider>
             <div class="col-md-10" style="height:800px">
                 <div class="wrapper">
-                    <div class="toolName">JSON/XML/CSS压缩</div>
+                    <div class="h2">JSON/XML/CSS压缩</div>
                     <hr/>
                     <div class="toolUsing clearfix">
                         <div class="leftBar">
