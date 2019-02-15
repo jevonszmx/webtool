@@ -4,25 +4,25 @@
             <sider></sider>
             <div class="col-md-10" style="height:800px">
                 <div class="root-detail">
-                    <div class="sub_header">
-                        <div class="h2">生成二维码Qrcode</div>
+                    <div class="h2">
+                        生成二维码Qrcode
                     </div>
                     <hr/>
                     <div class="app">
                         <div class="view search-box">
-                            <div class="layui-form-item m20">
-                                <div class="layui-col-md10 layui-input-inline w500 pull-left">
+                            <div class="m20">
+                                <div class="w500 pull-left">
                                     <input type="text" id="content" value="" autocomplete="off" placeholder="http://www.baidu.com" class="form-control"/>
                                 </div>
                                 <div class="layui-col-md2 custom-parse pull-left ml20">
                                     <button class="btn btn-primary" v-on:click="createQrcode">生成</button>
                                 </div>
                                 <div class="clearfix"></div>
-                                <div class="layui-col-md12 mt20" style="text-align: center;margin: 0 auto">
+                                <div class="mt20" style="text-align: center;margin: 0 auto">
                                     <canvas id="canvas"></canvas>
                                     <p v-show="created"><a id="download" download="qrcode.png">
                                         <button class="btn btn-primary" type="button" v-on:click="downloadQrcode">
-                                            Download
+                                            下载图片
                                         </button>
                                     </a></p>
                                 </div>
@@ -136,7 +136,6 @@
         flex: 1 0 auto;
         background-color: #fff;
         box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
         transition: margin-top 300ms;
     }
 
