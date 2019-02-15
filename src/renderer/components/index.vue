@@ -31,6 +31,8 @@
                             <a href="#" v-on:click="$router.push({name : 'Unixtime'});" class="list-group-item">时间戳转换</a>
                             <a href="#" v-on:click="$router.push({name : 'Crontab'});" class="list-group-item">Crontab表达式</a>
                             <a href="#" v-on:click="$router.push({name : 'ConvertHex'});" class="list-group-item">进制转换</a>
+                            <a href="#" v-on:click="$router.push({name : 'Regex'});" class="list-group-item">正则表达式</a>
+                            <a href="#" v-on:click="$router.push({name : 'Qrcode'});" class="list-group-item">二维码生成</a>
                         </div>
                     </div>
 
@@ -65,15 +67,6 @@
                                 Markdown
                             </p>
                             <a href="#" v-on:click="$router.push({name : 'Markdown'});" class="list-group-item">Markdown</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="list-group">
-                            <p href="#" class="list-group-item active">
-                                其他实用工具
-                            </p>
-                            <a href="#" v-on:click="$router.push({name : 'Regex'});" class="list-group-item">正则表达式</a>
-                            <a href="#" v-on:click="$router.push({name : 'Qrcode'});" class="list-group-item">二维码生成</a>
                         </div>
                     </div>
                 </div>
