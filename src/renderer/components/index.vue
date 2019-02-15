@@ -73,6 +73,7 @@
                                 其他实用工具
                             </p>
                             <a href="#" v-on:click="$router.push({name : 'Regex'});" class="list-group-item">正则表达式</a>
+                            <a href="#" v-on:click="$router.push({name : 'Qrcode'});" class="list-group-item">二维码生成</a>
                         </div>
                     </div>
                 </div>

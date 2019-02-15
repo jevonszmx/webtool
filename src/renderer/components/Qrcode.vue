@@ -5,42 +5,27 @@
             <div class="col-md-10" style="height:800px">
                 <div class="root-detail">
                     <div class="sub_header">
-                        <div class="app_desc">
-                            <h2>Crontab表达式生成</h2>
-                        </div>
+                        <div class="h2">生成二维码Qrcode</div>
                     </div>
                     <hr/>
                     <div class="app">
                         <div class="view search-box">
                             <div class="layui-form-item m20">
-                                <label class="layui-form-label w110  pull-left">表达式：</label>
                                 <div class="layui-col-md10 layui-input-inline w500 pull-left">
-                                    <input type="text" id="content" value="0 */12 * * * *" autocomplete="off" placeholder="0 */12 * * * * crontab" class="form-control"/>
+                                    <input type="text" id="content" value="" autocomplete="off" placeholder="http://www.baidu.com" class="form-control"/>
                                 </div>
                                 <div class="layui-col-md2 custom-parse pull-left ml20">
-                                    <button class="btn btn-primary" v-on:click="createCrontab">解析</button>
+                                    <button class="btn btn-primary" v-on:click="createQrcode">生成</button>
                                 </div>
                                 <div class="clearfix"></div>
-                                <div class="layui-col-md12 mt20">
-                                    <fieldset class="layui-elem-field layui-field-title site-title">
-                                        <legend><a name="default" title="接下来7次的执行时间">接下来5次的执行时间</a></legend>
-                                    </fieldset>
-                                    <div class="layui-card-body">
-                                    </div>
-                                    <pre><code>Crontab
-            *    *    *    *    *    *
-            -    -    -    -    -    -
-            |    |    |    |    |    |
-            |    |    |    |    |    + year [optional]
-            |    |    |    |    +----- day of week (0 - 7) (Sunday=0 or 7)
-            |    |    |    +---------- month (1 - 12)
-            |    |    +--------------- day of month (1 - 31)
-            |    +-------------------- hour (0 - 23)
-            +------------------------- min (0 - 59)
-            </code>
-            </pre>
+                                <div class="layui-col-md12 mt20" style="text-align: center;margin: 0 auto">
+                                    <canvas id="canvas"></canvas>
+                                    <p v-show="created"><a id="download" download="qrcode.png">
+                                        <button class="btn btn-primary" type="button" v-on:click="downloadQrcode">
+                                            Download
+                                        </button>
+                                    </a></p>
                                 </div>
-                                <div class="layui-col-md12 short-area"></div>
                             </div>
                         </div>
                     </div>
@@ -52,29 +37,36 @@
 
 <script>
     import $ from "jquery";
-    import later from "later";
     import sider from './sider'
+    import QRCode from 'qrcode'
 
     export default {
         components: {sider},
-        name: "Crontab",
+        name: "Qrcode",
         data() {
-            return {};
+            return {
+                created: false
+            };
         },
         methods: {
-            createCrontab() {
-                let link = $("#content").val();
-                if (link == '') {
-                    alert("内容不能空.");
-                    return;
+            createQrcode() {
+                let that = this
+                let content = document.getElementById('content').value
+                if (content == '') {
+                    alert('请填写要转换的链接或者文字')
+                    return false;
                 }
-                let sched = later.parse.cron(link);
-                later.date.localTime();
-                let results = later.schedule(sched).next(5);
-                $(".layui-card-body").html("");
-                for (let i = 0; i < results.length; i++) {
-                    $(".layui-card-body").append(results[i].toLocaleString() + "<hr/>");
-                }
+                QRCode.toCanvas(document.getElementById('canvas'), content, {width: '256'}, function (error) {
+                    if (error) console.error(error)
+                    console.log('success!');
+                    that.created = true
+                })
+            },
+            downloadQrcode() {
+                let download = document.getElementById("download");
+                let image = document.getElementById("canvas").toDataURL("image/png")
+                    .replace("image/png", "image/octet-stream");
+                download.setAttribute("href", image);
             }
         }
     };
