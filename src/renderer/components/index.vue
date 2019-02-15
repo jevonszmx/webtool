@@ -67,8 +67,15 @@
                             <a href="#" v-on:click="$router.push({name : 'Markdown'});" class="list-group-item">Markdown</a>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="list-group">
+                            <p href="#" class="list-group-item active">
+                                其他实用工具
+                            </p>
+                            <a href="#" v-on:click="$router.push({name : 'Regex'});" class="list-group-item">正则表达式</a>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

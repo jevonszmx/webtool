@@ -69,6 +69,10 @@ export default new Router({
             path: '/JSONMinify',
             name: 'JSONMinify',
             component: require('@/components/JSONMinify').default
+        },{
+            path: '/Regex',
+            name: 'Regex',
+            component: require('@/components/Regex').default
         },
         {
             path: '*',
