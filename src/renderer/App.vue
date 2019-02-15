@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: 'webtool'
-  }
+    export default {
+        name: 'webtool'
+    }
 </script>
 
 <style>
-  html,body{
-    height: 100%;
-  }
+    html, body {
+        height: 100%;
+    }
 </style>
