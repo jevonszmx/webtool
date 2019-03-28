@@ -21,8 +21,8 @@
                             <textarea name="url" id="source" class="form-control h200">测试</textarea>
                         </div>
                         <div class="operateLR">
-                            <label class=" pull-left" id="en_tip"><input type="radio" name="_type" checked="checked"/>encodeURI</label>
-                            <label class=" pull-left ml20" id="co_tip"><input type="radio" name="_type" id="co_t"/>encodeURIComponent</label>
+                            <label class=" pull-left" id="en_tip"><input type="radio" name="_type"/>encodeURI</label>
+                            <label class=" pull-left ml20" id="co_tip"><input type="radio" name="_type" id="co_t" checked="checked"/>encodeURIComponent</label>
                             <button class="btn btn-primary ml20" v-on:click="encode_uri"> URL编码 -&gt;</button>
                             <button class="btn btn-primary ml20" v-on:click="decode_uri"> -&lt; URL解码</button>
                         </div>
@@ -50,7 +50,7 @@
         },
         methods: {
             encode_uri() {
-                if ($("#co_t").attr("checked")) {
+                if (document.getElementById("co_t").checked) {
                     $("#result").val(encodeURIComponent($("#source").val()));
                 }
                 else {
@@ -58,7 +58,7 @@
                 }
             },
             decode_uri() {
-                if ($("#co_t").attr("checked")) {
+                if (document.getElementById("co_t").checked) {
                     $("#source").val(decodeURIComponent($("#result").val()));
                 }
                 else {
