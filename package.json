@@ -71,7 +71,7 @@
   "devDependencies": {
     "minimist": ">=0.2.1",
     "serialize-javascript": ">=2.1.1",
-    "lodash": ">=4.17.12",
+    "lodash": ">=4.17.19",
     "lodash.merge": ">=4.6.2",
     "ajv": "^6.12.3",
     "babel-core": "^6.26.3",
